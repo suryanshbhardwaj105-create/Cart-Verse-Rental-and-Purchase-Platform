@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register - Cart-Verse</title>
+
+<style>
+
+/* ===== BACKGROUND ===== */
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#232f3e,#37475a);
+    font-family:'Segoe UI', sans-serif;
+}
+
+/* ===== CONTAINER ===== */
+.auth-container{
+    width:400px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    animation:fadeIn 0.8s ease;
+}
+
+/* Animation */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== HEADING ===== */
+.auth-container h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+/* ===== INPUT ===== */
+.input-group{
+    margin-bottom:15px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+    width:100%;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    font-size:14px;
+}
+
+/* ===== TWO COLUMN ===== */
+.two-column{
+    display:flex;
+    gap:10px;
+}
+
+/* ===== BUTTON ===== */
+.auth-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    background:linear-gradient(45deg,#ff9900,#ff5e00);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:10px;
+    transition:0.3s;
+}
+
+.auth-btn:hover{
+    transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+.auth-footer{
+    text-align:center;
+    margin-top:15px;
+}
+
+.auth-footer a{
+    color:#ff5e00;
+    text-decoration:none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:450px){
+    .auth-container{
+        width:90%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="auth-container">
+    <h2>Create Account</h2>
+
+    <!-- NAME -->
+    <div class="two-column">
+        <div class="input-group">
+            <input type="text" id="firstName" placeholder="First Name">
+        </div>
+        <div class="input-group">
+            <input type="text" id="lastName" placeholder="Last Name">
+        </div>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="input-group">
+        <input type="email" id="email" placeholder="Enter Email">
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="input-group">
+        <input type="password" id="password" placeholder="Enter Password">
+    </div>
+
+    <!-- GENDER -->
+    <div class="input-group">
+        <select id="gender">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+    </div>
+
+    <!-- ADDRESS -->
+    <div class="input-group">
+        <textarea id="address" rows="3" placeholder="Enter Address"></textarea>
+    </div>
+
+    <!-- SEND OTP -->
+    <button class="auth-btn" onclick="sendOTP()">Send OTP</button>
+
+    <!-- OTP -->
+    <div class="input-group">
+        <input type="text" id="otp" placeholder="Enter OTP">
+    </div>
+
+    <!-- REGISTER -->
+    <button class="auth-btn" onclick="verifyOTP()">Register</button>
+
+    <div class="auth-footer">
+        Already have an account?
+        <a href="login.html">Login</a>
+    </div>
+</div>
+
+<script>
+
+async function sendOTP(){
+
+    const email = document.getElementById("email").value;
+
+    if(!email){
+        alert("Enter Email first ❌");
+        return;
+    }
+
+    const res = await fetch("http://localhost:5000/send-otp",{
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ email })
+    });
+
+    const data = await res.json();
+    alert(data.message);
+}
+
+
+async function verifyOTP(){
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const otp = document.getElementById("otp").value;
+    const gender = document.getElementById("gender").value;
+    const address = document.getElementById("address").value;
+
+    if(!email || !password || !otp || !gender || !address){
+        alert("Fill all fields ❌");
+        return;
+    }
+
+    const res = await fetch("http://localhost:5000/verify-otp",{
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ email, password, otp, gender, address })
+    });
+
+    const data = await res.json();
+
+    if(data.success){
+        alert("Registered Successfully ✅");
+        window.location.href="login.html";
+    }else{
+        alert(data.message);
+    }
+}
+
+</script>
+
+</body>
+</html>

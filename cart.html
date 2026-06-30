@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Bookings - Cart Verse</title>
+<link rel="stylesheet" href="style.css">
+<!-- <script src="script.js"></script> -->
+ <style>
+    #deliveryCharge{
+    font-size:18px;
+    font-weight:bold;
+    color:#fb641b;
+    margin-top:10px;
+}
+.home-btn{
+    background:black;
+    color:white;
+    padding:12px 20px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.home-btn:hover{
+    background:#333;
+}
+ </style>
+</head>
+
+<body onload="loadCart()">
+
+<header>
+<h1>CART-VERSE</h1>
+
+</header>
+<div class="input-group">
+    <label>Delivery Distance (KM)</label>
+    <input type="number" id="distance" placeholder="Enter distance in KM">
+</div>
+
+<p id="deliveryCharge">Delivery Charge: ₹0</p>
+
+<button onclick="calculateDelivery()" class="confirm-btn">
+    Confirm Order
+</button>
+<script>
+function checkLogin(){
+
+    const token = localStorage.getItem("token");
+    const authDiv = document.getElementById("auth-buttons");
+
+    if(!authDiv) return;
+
+    // USER NOT LOGGED IN
+    if(!token){
+        authDiv.innerHTML = `
+            <a href="login.html">
+                <button class="login-btn">Login</button>
+            </a>
+        `;
+    }
+    // USER LOGGED IN
+    else{
+        authDiv.innerHTML = `
+            <button class="logout-btn" onclick="logoutUser()">
+                Logout
+            </button>
+        `;
+    }
+}
+
+function logoutUser(){
+    localStorage.removeItem("token");
+    alert("Logged out successfully");
+    window.location.href="login.html";
+}
+
+checkLogin();
+</script>
+<h2 style="text-align:center;">My Rentals</h2>
+
+<section id="cart-items" class="products"></section>
+
+<h2 id="totalPrice" style="text-align:center;"></h2>
+
+<script src="script.js"></script>
+<script>
+
+function calculateDelivery() {
+
+    let distance = document.getElementById("distance").value;
+    let charge = 0;
+
+    if(distance <= 2){
+        charge = 50;
+    }
+    else if(distance <= 5){
+        charge = 100;
+    }
+    else if(distance <= 10){
+        charge = 150;
+    }
+    else{
+        charge = 200; // long distance delivery
+    }
+
+    document.getElementById("deliveryCharge").innerText =
+        "Delivery Charge: ₹" + charge;
+}
+
+</script>
+<input type="number" id="distance" oninput="calculateDelivery()">
+<button onclick="window.location.href='/oindex.html'" class="home-btn">
+    🏠 Go To Home
+</button>
+</body>
+</html>

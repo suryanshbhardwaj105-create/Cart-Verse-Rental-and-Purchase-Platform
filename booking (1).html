@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart-Verse | Booking Page</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <script>
+const token = localStorage.getItem("token");
+
+if(!token){
+    alert("Please login first!");
+    window.location.href="login.html";
+}
+</script>
+
+<header>
+    <h1>🛒 Cart-Verse Booking</h1>
+</header>
+
+
+<div class="container">
+
+    <h2>Booking Details</h2>
+
+    <!-- Product Details -->
+    <div class="product-info">
+        <p><strong>Product:</strong> <span id="productName"></span></p>
+        <p><strong>Price:</strong> ₹<span id="productPrice"></span></p>
+    </div>
+
+    <!-- Rental or Buy -->
+    <label>Select Option:</label>
+    <select id="bookingType">
+        <option value="buy">Buy Outfit</option>
+        <option value="rent">Rent Outfit</option>
+    </select>
+
+    <!-- Rental Days -->
+    <label>Rental Duration:</label>
+    <select id="rentalDays">
+        <option value="3">3 Days</option>
+        <option value="5">5 Days</option>
+        <option value="7">7 Days</option>
+    </select>
+
+    <!-- Address -->
+    <label>Delivery Address:</label>
+    <input type="text" id="address" placeholder="Enter your address">
+
+    <!-- Confirm Button -->
+    <button class="confirm-btn" onclick="confirmBooking()">
+        <i class="fa-solid fa-check"></i> Confirm Booking
+    </button>
+
+    <!-- Summary -->
+    <div class="summary" id="summary"></div>
+
+    <!-- Back Home -->
+    <button class="home-btn" onclick="goHome()">
+        ⬅ Back to Home
+    </button>
+
+</div>
+
+<script>
+
+    /* Load Product From Previous Page */
+    const name = localStorage.getItem("productName") || "Demo Outfit";
+    const price = localStorage.getItem("productPrice") || 999;
+
+    document.getElementById("productName").innerText = name;
+    document.getElementById("productPrice").innerText = price;
+
+
+    function confirmBooking(){
+
+        const type = document.getElementById("bookingType").value;
+        const days = document.getElementById("rentalDays").value;
+        const address = document.getElementById("address").value;
+
+        if(address === ""){
+            alert("Please enter address!");
+            return;
+        }
+
+        let totalPrice = price;
+
+        if(type === "rent"){
+            totalPrice = Math.floor(price * (days/10)); 
+            // rental price logic
+        }
+
+        document.getElementById("summary").innerHTML = `
+            <h3>✅ Booking Confirmed!</h3>
+            <p><b>Product:</b> ${name}</p>
+            <p><b>Type:</b> ${type.toUpperCase()}</p>
+            <p><b>Duration:</b> ${type==="rent"?days+" Days":"N/A"}</p>
+            <p><b>Total Price:</b> ₹${totalPrice}</p>
+            <p><b>Delivery Address:</b> ${address}</p>
+        `;
+    }
+
+
+    function goHome(){
+        window.location.href = "oindex.html";
+    }
+
+</script>
+<script>
+
+function calculateDelivery() {
+
+    let distance = document.getElementById("distance").value;
+    let charge = 0;
+
+    if(distance <= 2){
+        charge = 50;
+    }
+    else if(distance <= 5){
+        charge = 100;
+    }
+    else if(distance <= 10){
+        charge = 150;
+    }
+    else{
+        charge = 200; // long distance delivery
+    }
+
+    document.getElementById("deliveryCharge").innerText =
+        "Delivery Charge: ₹" + charge;
+}
+
+</script>
+<input type="number" id="distance" oninput="calculateDelivery()">
+<button onclick="goToPayment()" class="confirm-btn">
+    Confirm Booking
+</button>
+<script>
+function goToPayment(){
+    window.location.href = "payment.html";
+}
+</script>
+
+</body>
+</html>

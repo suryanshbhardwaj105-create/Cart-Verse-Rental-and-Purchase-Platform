@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kids Collection - The Trend Loom</title>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>CART-VERSE</h1>
+    <nav>
+        <a href="oindex.html">Home</a>
+        <a href="men.html">Men</a>
+        <a href="women.html">Women</a>
+        <a href="kids.html">Kids</a>
+        <a href="payment.html">Payment</a>
+    </nav>
+    <div class="cart-icon">
+    <a href="cart.html">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>My Bookings</span>
+    </a>
+</div>
+</header>
+
+<section class="kids-hero">
+    <h2>Adorable Kids Collection</h2>
+    <p>Fun • Fashion • Comfort</p>
+</section>
+
+<section class="products">
+
+    <div class="product-card">
+        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT0PjPBQ-CuJke7cqsPqmRjFIKGo3H4L-n7jiG0sOw7uRj2k3Q5F47CUa50ltAUSZQWBqdomkeQRt3MeMkq74Tlq3fU489uMvnesYArb2544Fa__4cGOXJg">
+        <h3>Birthday Party Dress</h3>
+        <p>₹699 / Day</p>
+        <button onclick="addToCart('Classic Black Suit',999)">Rent Now</button>
+        <select>
+            <option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" placeholder="No. of Days">
+        <button onclick="bookItem('Birthday Party Dress',699)">ORDER</button>
+
+        <script>
+        function bookItem(name, price){
+            localStorage.setItem("productName", name);
+            localStorage.setItem("productPrice", price);
+            window.location.href="booking.html";
+        }
+        </script>
+    </div>
+
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea">
+        <h3>Kids Destnation Wear</h3>
+        <p>₹899 / Day</p>
+        <button onclick="addToCart('Classic Black Suit',999)">Rent Now</button>
+        <select>
+            <option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" placeholder="No. of Days">
+        <button onclick="bookItem('Kids Wedding Sherwani',899)">ORDER</button>
+
+        <script>
+        function bookItem(name, price){
+            localStorage.setItem("productName", name);
+            localStorage.setItem("productPrice", price);
+            window.location.href="booking.html";
+        }
+        </script>
+    </div>
+
+    <div class="product-card">
+        <img src="https://lagorii.com/cdn/shop/files/designer-multilayer-ruffled-maroon-gown-with-floral-embellishments-for-girls-lagorii-kids-1.jpg?v=1710335597&width=750">
+        <h3>Princess Gown</h3>
+        <p>₹999 / Day</p>
+        <button onclick="addToCart('Classic Black Suit',999)">Rent Now</button>
+        <select>
+            <option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" placeholder="No. of Days">
+        <button onclick="bookItem('Princess Gown',999)">ORDER</button>
+
+        <script>
+        function bookItem(name, price){
+            localStorage.setItem("productName", name);
+            localStorage.setItem("productPrice", price);
+            window.location.href="booking.html";
+        }
+        </script>
+    </div>
+
+    <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7Ttbv_IXz2g5fFSuVyl2TbAvnz0Rwc4_CAA&s">
+        <h3>Superhero Costume</h3>
+        <p>₹799 / Day</p>
+        <button onclick="addToCart('Classic Black Suit',999)">Rent Now</button>
+        <select>
+            <option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" placeholder="No. of Days">
+        <button onclick="bookItem('Superhero Costume',799)">ORDER</button>
+
+        <script>
+        function bookItem(name, price){
+            localStorage.setItem("productName", name);
+            localStorage.setItem("productPrice", price);
+            window.location.href="booking.html";
+        }
+        </script>
+    </div>
+
+    <div class="product-card">
+        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSAxjoh0wSy2O-HvZ4-F6ASa6KyGJb1yMfCtU55JlwS1Z90zGrlZhFfnwj8z75OWwLtv5hC5NLNXWmbatbUpcizTj80H3TClocpCFN8B5zn20XEHQnkT1QB5ADlqFadu9uisxTpvRg&usqp=CAc">
+        <h3>Casual Kids Jacket</h3>
+        <p>₹499 / Day</p>
+        <button onclick="addToCart('Classic Black Suit',999)">Rent Now</button>
+        <select>
+            <option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" placeholder="No. of Days">
+        <button onclick="bookItem('Casual Kids Jacket',499)">ORDER</button>
+
+        <script>
+        function bookItem(name, price){
+            localStorage.setItem("productName", name);
+            localStorage.setItem("productPrice", price);
+            window.location.href="booking.html";
+        }
+        </script>
+    </div>
+
+    <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi-_rzeMH6CX8-Z2ZpXt3LLQHj_GZGW3t6kg&s">
+        <h3>Festival Kurti Set</h3>
+        <p>₹599 / Day</p>
+        <button onclick="addToCart('Classic Black Suit',999)">Rent Now</button>
+        <select>
+            <option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" placeholder="No. of Days">
+        <button onclick="bookItem('Festival Kurta Set',599)">ORDER</button>
+
+        <script>
+        function bookItem(name, price){
+            localStorage.setItem("productName", name);
+            localStorage.setItem("productPrice", price);
+            window.location.href="booking.html";
+        }
+        </script>
+    </div>
+
+    <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61mnJFLK+tL._SY550_.jpg">
+        <h3>Winter Hoodie</h3>
+        <p>₹399 / Day</p>
+        <button onclick="addToCart('Classic Black Suit',999)">Rent Now</button>
+        <select>
+            <option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" placeholder="No. of Days">
+        <button onclick="bookItem('Winter Hoodie',399)">ORDER</button>
+
+        <script>
+        function bookItem(name, price){
+            localStorage.setItem("productName", name);
+            localStorage.setItem("productPrice", price);
+            window.location.href="booking.html";
+        }
+        </script>
+    </div>
+
+    <div class="product-card">
+        <img src="data:image/jpeg;base64,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">
+        <h3>Mini Blazer Set</h3>
+        <p>₹899 / Day</p>
+        <button onclick="addToCart('Classic Black Suit',999)">Rent Now</button>
+        <select>
+            <option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" placeholder="No. of Days">
+        <button onclick="bookItem('Mini Blazer Set',899)">ORDER</button>
+
+        <script>
+        function bookItem(name, price){
+            localStorage.setItem("productName", name);
+            localStorage.setItem("productPrice", price);
+            window.location.href="booking.html";
+        }
+        </script>
+    </div>
+    <script>
+function checkLogin(){
+
+    const token = localStorage.getItem("token");
+    const authDiv = document.getElementById("auth-buttons");
+
+    if(!authDiv) return;
+
+    // USER NOT LOGGED IN
+    if(!token){
+        authDiv.innerHTML = `
+            <a href="login.html">
+                <button class="login-btn">Login</button>
+            </a>
+        `;
+    }
+    // USER LOGGED IN
+    else{
+        authDiv.innerHTML = `
+            <button class="logout-btn" onclick="logoutUser()">
+                Logout
+            </button>
+        `;
+    }
+}
+
+function logoutUser(){
+    localStorage.removeItem("token");
+    alert("Logged out successfully");
+    window.location.href="login.html";
+}
+
+checkLogin();
+</script>
+
+    <div class="product-card">
+        <img src="data:image/jpeg;base64,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">
+        <h3>Dance Costume</h3>
+        <p>₹699 / Day</p>
+        <button onclick="addToCart('Classic Black Suit',999)">Rent Now</button>
+        <select>
+            <option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" placeholder="No. of Days">
+        <button onclick="bookItem('Dance Costume',699)">ORDER</button>
+
+        <script>
+        function bookItem(name, price){
+            localStorage.setItem("productName", name);
+            localStorage.setItem("productPrice", price);
+            window.location.href="booking.html";
+        }
+        </script>
+    </div>
+
+    <div class="product-card">
+        <img src="data:image/jpeg;base64,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">
+        <h3>Kids Party Suit</h3>
+        <p>₹799 / Day</p>
+        <button onclick="addToCart('Classic Black Suit',999)">Rent Now</button>
+        <select>
+            <option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" placeholder="No. of Days">
+        <button onclick="bookItem('Kids Party Suit',799)">ORDER</button>
+
+        <script>
+        function bookItem(name, price){
+            localStorage.setItem("productName", name);
+            localStorage.setItem("productPrice", price);
+            window.location.href="booking.html";
+        }
+        </script>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 The Cart-Verse | Premium Rental Fashion</p>
+</footer>
+
+</body>
+</html>
